@@ -3,15 +3,19 @@ import sqlite3
 conn = sqlite3.connect("clientes.db")
 cursor = conn.cursor()
 
-lista = [(
-    'Fabio', 23, '55555555555', 'fabio@email.com', '11-98765-4325', 'Belo Horizonte', 'MG', '2022-01-22'),
-    ('Joao', 21, '66666666666', 'joao@email.com', '11-98765-4326', 'Sao Paulo', 'SP', '2022-01-22' ),
-    ('Xavier', 24, '77777777777', 'xavier@email.com', '11-98765-4327', 'Campinas', 'SP', '2022-01-22' )]
+p_nome = input('Nome: ')
+p_idade = input('Idade: ')
+p_cpf = input('CPF ')
+p_email = input('Email: ')
+p_fone = input('Fone: ')
+p_cidade = input('Cidade: ')
+p_uf = input('UF: ')
+p_criado_em = input('Criado em (yyyy-mm-dd): ')
 
-cursor.executemany("""
+cursor.execute("""
 INSERT INTO clientes (nome, idade, cpf, email, fone, cidade, uf, criado_em)
 VALUES (?,?,?,?,?,?,?,?)
-""", lista)
+""", (p_nome, p_idade, p_cpf, p_email, p_fone, p_cidade, p_uf, p_criado_em))
 
 conn.commit()
 
