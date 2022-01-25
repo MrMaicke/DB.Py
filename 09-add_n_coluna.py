@@ -3,15 +3,13 @@ import sqlite3
 conn = sqlite3.connect("clientes.db")
 cursor = conn.cursor()
 
-id_cliente = 9
-
 cursor.execute("""
-DELETE FROM clientes
-WHERE id = ?
-""", (id_cliente,))
+ALTER TABLE clientes
+ADD COLUMN bloqueado BOOLEAN;
+""")
 
 conn.commit()
 
-print('Registro excluido com sucesso.')
+print('Novo campo adicionado com sucesso.')
 
 conn.close()
