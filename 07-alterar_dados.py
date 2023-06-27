@@ -4,7 +4,7 @@ conn = sqlite3.connect("clientes.db")
 cursor = conn.cursor()
 
 id_cliente = 9
-novo_nome = 'maisa'
+novo_nome = 'maísa'
 novo_criado_em ='2014-06-11'
 
 cursor.execute("""
